@@ -1,6 +1,7 @@
 // The inverse kinematics for a quadruped robot
 // This is a translation of the python functions originally obtained from
 // https://spotmicroai.readthedocs.io/en/latest/kinematic/
+// Translation by Taylor Privat
 
 #include "quad_ik.h"
 
