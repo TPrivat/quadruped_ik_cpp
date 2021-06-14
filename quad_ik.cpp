@@ -67,26 +67,26 @@ TransformMatrices bodyIK(float omega, float phi, float psi,
 	// Calculates position of body (4 shoulders) {IN BODY SPACE}
 	Matrix4f rx;
 	rx << 1, 0, 0, 0,
-			0, cos(omega), -1*sin(omega), 0,
-			0, sin(omega), cos(omega), 0,
-			0, 0, 0, 1;
+		0, cos(omega), -1*sin(omega), 0,
+		0, sin(omega), cos(omega), 0,
+		0, 0, 0, 1;
 	Matrix4f ry;
 	ry << cos(phi), 0, sin(phi), 0,
-			0, 1, 0, 0,
-			-1*sin(phi), 0, cos(phi), 0,
-			0, 0, 0, 1;
+		0, 1, 0, 0,
+		-1*sin(phi), 0, cos(phi), 0,
+		0, 0, 0, 1;
 	Matrix4f rz;
 	rz << cos(psi), -1*sin(psi), 0, 0,
-			sin(psi), cos(psi), 0, 0,
-			0, 0, 1, 0,
-			0, 0, 0, 1;
+		sin(psi), cos(psi), 0, 0,
+		0, 0, 1, 0,
+		0, 0, 0, 1;
 	Matrix4f rxyz = rx * ry * rz;
 
 	Matrix4f t;
 	t << 0, 0, 0, x,
-			0, 0, 0, y,
-			0, 0, 0, z,
-			0, 0, 0, 0;
+		0, 0, 0, y,
+		0, 0, 0, z,
+		0, 0, 0, 0;
 	Matrix4f tm = t + rxyz;
 	
 	Matrix4f temp;
