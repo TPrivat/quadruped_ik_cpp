@@ -11,6 +11,7 @@ The main function uses gnuplot to plot body and leg positions to verify the libr
 The code to produce the figure in gnuplot is below.
 
 In GNUPlot
+```
 gnuplot> set xrange [-200:200]
 gnuplot> set yrange [-200:200]
 gnuplot> set zrange [-200:200]
@@ -24,3 +25,4 @@ gnuplot> splot "robot.dat" index 0 with linespoints linestyle 1, \
 '' index 2 with linespoints linestyle 3, \
 '' index 3 with linespoints linestyle 4, \
 '' index 4 with linespoints linestyle 5
+```
