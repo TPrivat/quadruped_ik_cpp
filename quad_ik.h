@@ -9,10 +9,12 @@
 #include <iostream>
 #include <math.h>
 #include <vector>
+#include <Eigen/Dense>
 
-#define pi 3.14159
+#define PI 3.14159
 
 using namespace std;
+using namespace Eigen;
 
 // ----- Data types needed ------
 
@@ -33,22 +35,18 @@ typedef struct {
 
 // Transform matrices from bodyIK
 typedef struct {
-	vector<vector<float>> rb;	// Right Back
-	vector<vector<float>> rf;	// Right Front
-	vector<vector<float>> lb;	// Left Back
-	vector<vector<float>> lf;	// Left Front
-	vector<vector<float>> tm;	// Transform Matrix
+	Matrix4f rb;	// Right Back
+	Matrix4f rf;	// Right Front
+	Matrix4f lb;	// Left Back
+	Matrix4f lf;	// Left Front
+	Matrix4f tm;	// Transform Matrix
 } TransformMatrices ;
 
 // ------ Functions ----------
 
-vector<vector<float>> matmul(vector<vector<float>> a, vector<vector<float>> b);
-
-vector<float> mvmul(vector<vector<float>> matrix, vector<float> vector);
-
 JointAngles legIK(float x, float y, float z, LinkLens links);
 
-vector<vector<float>> calcLegPoints(JointAngles angles, LinkLens links);
+Matrix<float, 5, 4> calcLegPoints(JointAngles angles, LinkLens links);
 
 TransformMatrices bodyIK(float omega, float phi, float psi,
                          float x, float y, float z,
