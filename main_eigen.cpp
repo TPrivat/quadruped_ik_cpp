@@ -84,10 +84,10 @@ int main() {
 	}
 	fin << "\n\n";
 
-	q = tfm.rf.inverse() * lp.row(1).transpose();
+	q = Ix * tfm.rf.inverse() * lp.row(1).transpose();
 	Matrix<float, 5, 4> rfja = calcLegPoints(legIK(q(0), q(1), q(2), links), links);
 	for (int i=0; i<5; i++) {
-		points.row(i) = tfm.rf * rfja.row(i).transpose();
+		points.row(i) = tfm.rf * Ix * rfja.row(i).transpose();
 	}
 	for (int i=0; i<5; i++) {
 		for (int j=0; j<3; j++) {
@@ -97,10 +97,10 @@ int main() {
 	}
 	fin << "\n\n";
 
-	q = tfm.rb.inverse() * lp.row(3).transpose();
+	q = Ix * tfm.rb.inverse() * lp.row(3).transpose();
 	Matrix<float, 5, 4> rbja = calcLegPoints(legIK(q(0), q(1), q(2), links), links);
 	for (int i=0; i<5; i++) {
-		points.row(i) = tfm.rb * rbja.row(i).transpose();
+		points.row(i) = tfm.rb * Ix * rbja.row(i).transpose();
 	}
 	for (int i=0; i<5; i++) {
 		for (int j=0; j<3; j++) {
