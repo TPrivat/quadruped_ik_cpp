@@ -15,6 +15,9 @@ In GNUPlot
 gnuplot> set xrange [-200:200]
 gnuplot> set yrange [-200:200]
 gnuplot> set zrange [-200:200]
+gnuplot> set xlabel 'X'
+gnuplot> set ylabel 'Y'
+gnuplot> set zlabel 'Z'
 gnuplot> set style line 1 linecolor rgb '#0060ad' linetype 1 linewidth 2
 gnuplot> set style line 2 linecolor rgb '#dd181f' linetype 1 linewidth 2
 gnuplot> set style line 3 linecolor rgb '#ffff00' linetype 1 linewidth 2
