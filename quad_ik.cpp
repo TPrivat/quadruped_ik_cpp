@@ -19,7 +19,7 @@ JointAngles legIK(float x, float y, float z, const LinkLens links) {
 	float g = f - links.l2;
 	float h = sqrt(g*g + z*z);
 
-	ja.ang1 = atan2(y, x) - atan2(f, -1*links.l1);
+	ja.ang1 = -1*atan2(y, x) - atan2(f, -1*links.l1);
 
 	float d = (h*h - links.l3*links.l3 - links.l4*links.l4);
 	d /= (2 * links.l3 * links.l4);
